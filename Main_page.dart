@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'ReportStatus_page.dart';
+import 'Recommendation_page.dart';
+
 
 void main() {
   runApp(MainPage());
@@ -44,20 +47,52 @@ class MainPage extends StatelessWidget {
                         ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Expanded(child: _buildCard('קביעת תורים', Icons.calendar_today)),
+                        Expanded(
+                            child: _buildCard(context, 'קביעת תורים',
+                                Icons.calendar_today, () {
+                                  print('קביעת תורים נלחץ');
+                                  // הוסף כאן ניווט למסך קביעת תורים
+                                })),
                         SizedBox(width: 10),
-                        Expanded(child: _buildCard('טיפולים שלי', Icons.favorite)),
+                        Expanded(
+                            child: _buildCard(context, 'טיפולים שלי',
+                                Icons.favorite, () {
+                                  print('טיפולים שלי נלחץ');
+                                  // הוסף כאן ניווט למסך טיפולים שלי
+                                })),
                         SizedBox(width: 10),
-                        Expanded(child: _buildCard('דיווחים שלי', Icons.list)),
+                        Expanded(
+                            child: _buildCard(context, 'דיווחים שלי',
+                                Icons.list, () {
+                                  print('דיווחים שלי נלחץ');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ReportStatusPage()),
+                                  );
+                                })),
                       ],
                     )
                         : Column(
                       children: [
-                        _buildCard('קביעת תורים', Icons.calendar_today),
+                        _buildCard(context, 'קביעת תורים',
+                            Icons.calendar_today, () {
+                              print('קביעת תורים נלחץ');
+                              // הוסף כאן ניווט למסך קביעת תורים
+                            }),
                         SizedBox(height: 10),
-                        _buildCard('טיפולים שלי', Icons.favorite),
+                        _buildCard(context, 'טיפולים שלי', Icons.favorite,
+                                () {
+                              print('טיפולים שלי נלחץ');
+                              // הוסף כאן ניווט למסך טיפולים שלי
+                            }),
                         SizedBox(height: 10),
-                        _buildCard('דיווחים שלי', Icons.list),
+                        _buildCard(context, 'דיווחים שלי', Icons.list, () {
+                          print('דיווחים שלי נלחץ');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ReportStatusPage()),
+                          );
+                        }),
                       ],
                     ),
                     SizedBox(height: 10),
@@ -65,20 +100,53 @@ class MainPage extends StatelessWidget {
                         ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Expanded(child: _buildCard('מסמכים', Icons.description)),
+                        Expanded(
+                            child: _buildCard(context, 'מסמכים',
+                                Icons.description, () {
+                                  print('מסמכים נלחץ');
+                                  // הוסף כאן ניווט למסך מסמכים
+                                })),
                         SizedBox(width: 10),
-                        Expanded(child: _buildCard('דבר עם הרופא', Icons.person)),
+                        Expanded(
+                            child: _buildCard(context, 'דבר עם הרופא',
+                                Icons.person, () {
+                                  print('דבר עם הרופא נלחץ');
+                                  // הוסף כאן ניווט למסך דבר עם הרופא
+                                })),
                         SizedBox(width: 10),
-                        Expanded(child: _buildCard('המלצות שלי', Icons.lightbulb_outline)),
+                        Expanded(
+                            child: _buildCard(context, 'המלצות שלי',
+                                Icons.lightbulb_outline, () {
+                                  print('המלצות שלי נלחץ');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => RecommendationPage()),
+                                  );
+                                })),
                       ],
                     )
                         : Column(
                       children: [
-                        _buildCard('מסמכים', Icons.description),
+                        _buildCard(context, 'מסמכים',
+                            Icons.description, () {
+                              print('מסמכים נלחץ');
+                              // הוסף כאן ניווט למסך מסמכים
+                            }),
                         SizedBox(height: 10),
-                        _buildCard('דבר עם הרופא', Icons.person),
+                        _buildCard(context, 'דבר עם הרופא', Icons.person,
+                                () {
+                              print('דבר עם הרופא נלחץ');
+                              // הוסף כאן ניווט למסך דבר עם הרופא
+                            }),
                         SizedBox(height: 10),
-                        _buildCard('המלצות שלי', Icons.lightbulb_outline),
+                        _buildCard(context, 'המלצות שלי',
+                            Icons.lightbulb_outline, () {
+                              print('המלצות שלי נלחץ');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => RecommendationPage()),
+                              );
+                            }),
                       ],
                     ),
                     SizedBox(height: 20),
@@ -87,9 +155,11 @@ class MainPage extends StatelessWidget {
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10),
-                    _buildTreatmentTile('טיפול מתמשך', 'טיפול דיקור סיני', '18.02.2025', 'עדכון תור', 'פרטים', '14:00'),
+                    _buildTreatmentTile('טיפול מתמשך', 'טיפול דיקור סיני',
+                        '18.02.2025', 'עדכון תור', 'פרטים', '14:00'),
                     SizedBox(height: 10),
-                    _buildTreatmentTile('טיפול מתמשך', 'טיפול דיקור סיני', '18.03.2025', 'עדכון תור', 'פרטים', '14:30'),
+                    _buildTreatmentTile('טיפול מתמשך', 'טיפול דיקור סיני',
+                        '18.03.2025', 'עדכון תור', 'פרטים', '14:30'),
                   ],
                 ),
               );
@@ -100,27 +170,37 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(String title, IconData icon) {
+  Widget _buildCard(BuildContext context, String title, IconData icon,
+      Function onPressed) {
     return Card(
       elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Container(
-        width: double.infinity,
-        height: 100,
-        padding: EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 30, color: Colors.blue[800]),
-            SizedBox(height: 5),
-            Text(title, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w500)),
-          ],
+      child: InkWell(
+        onTap: () {
+          onPressed();
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          width: double.infinity,
+          height: 100,
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 30, color: Colors.blue[800]),
+              SizedBox(height: 5),
+              Text(title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w500)),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildTreatmentTile(String title1, String title2, String date, String button1Text, String button2Text, String time) {
+  Widget _buildTreatmentTile(String title1, String title2, String date,
+      String button1Text, String button2Text, String time) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -138,7 +218,7 @@ class MainPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             ElevatedButton(
-              onPressed: () {}, // הוספת פונקציה ריקה
+              onPressed: () {},
               child: Text(button1Text, style: TextStyle(fontSize: 12)),
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -147,7 +227,7 @@ class MainPage extends StatelessWidget {
             ),
             SizedBox(width: 5),
             ElevatedButton(
-              onPressed: () {}, // הוספת פונקציה ריקה
+              onPressed: () {},
               child: Text(button2Text, style: TextStyle(fontSize: 12)),
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),

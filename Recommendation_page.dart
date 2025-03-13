@@ -20,7 +20,7 @@ class _RecommendationPage extends State<RecommendationPage> {
           title: Text('המלצות שלי'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+            onPressed: () {Navigator.pop(context);},
           ),
         ),
         body: Directionality(

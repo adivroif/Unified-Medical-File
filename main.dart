@@ -5,6 +5,7 @@ import 'package:untitled2/Recommendation_page.dart';
 import 'TurnDetails_page.dart';
 import 'ReportStatus_page.dart';
 import 'Turns_page.dart';
+import 'ForgotPassword_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ReportStatusPage(),
+      home: LoginPage(),
     );
   }
 }

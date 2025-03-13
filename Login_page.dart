@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'main_page.dart';
+import 'ForgotPassword_page.dart';
+import 'Registration_page.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -73,7 +77,13 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              //Add move to main page only if the credentials correct.
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MainPage()),
+                            );
+                              },
                             child: Text(
                               'התחברות',
                               style: TextStyle(color: Colors.white),
@@ -84,7 +94,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           SizedBox(width: 10),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                            );},
                             child: Text(
                               'שכחתי סיסמא',
                               style: TextStyle(color: Colors.white),
@@ -97,7 +111,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 10),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RegistrationPage()),
+                        );
+                        },
                         child: Text(
                           'הרשמה',
                           style: TextStyle(color: Colors.white),

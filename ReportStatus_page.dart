@@ -20,7 +20,7 @@ class _ReportStatusPageState extends State<ReportStatusPage> {
           title: Text('דיווחים שלי'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+            onPressed: () {Navigator.pop(context);},
           ),
         ),
         body: Directionality(
