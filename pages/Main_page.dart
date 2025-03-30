@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled2/pages/Appointment_screen.dart';
+import 'package:untitled2/pages/TalkWithDoctor_page.dart';
+import 'package:untitled2/pages/Appointments_page.dart';
+import './ReportStatus_page.dart';
+import 'Appointment_screen.dart';
 import 'ReportStatus_page.dart';
 import 'Recommendation_page.dart';
+import 'TalkWithDoctor_page.dart';
 
 
 void main() {
@@ -18,6 +24,12 @@ class MainPage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.notifications),
               onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.menu), // אייקון 3 קווים
+              onPressed: () {
+                _showPopupMenu(context); // פתיחת תפריט
+              },
             ),
           ],
         ),
@@ -51,6 +63,10 @@ class MainPage extends StatelessWidget {
                             child: _buildCard(context, 'קביעת תורים',
                                 Icons.calendar_today, () {
                                   print('קביעת תורים נלחץ');
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                                  );
                                   // הוסף כאן ניווט למסך קביעת תורים
                                 })),
                         SizedBox(width: 10),
@@ -59,6 +75,10 @@ class MainPage extends StatelessWidget {
                                 Icons.favorite, () {
                                   print('טיפולים שלי נלחץ');
                                   // הוסף כאן ניווט למסך טיפולים שלי
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => AppointmentsPage()),
+                                  );
                                 })),
                         SizedBox(width: 10),
                         Expanded(
@@ -77,6 +97,10 @@ class MainPage extends StatelessWidget {
                         _buildCard(context, 'קביעת תורים',
                             Icons.calendar_today, () {
                               print('קביעת תורים נלחץ');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                              );
                               // הוסף כאן ניווט למסך קביעת תורים
                             }),
                         SizedBox(height: 10),
@@ -84,6 +108,10 @@ class MainPage extends StatelessWidget {
                                 () {
                               print('טיפולים שלי נלחץ');
                               // הוסף כאן ניווט למסך טיפולים שלי
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AppointmentsPage()),
+                              );
                             }),
                         SizedBox(height: 10),
                         _buildCard(context, 'דיווחים שלי', Icons.list, () {
@@ -111,8 +139,11 @@ class MainPage extends StatelessWidget {
                             child: _buildCard(context, 'דבר עם הרופא',
                                 Icons.person, () {
                                   print('דבר עם הרופא נלחץ');
-                                  // הוסף כאן ניווט למסך דבר עם הרופא
-                                })),
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => TalkWithDoctorPage()),
+                                  );
+                            })),
                         SizedBox(width: 10),
                         Expanded(
                             child: _buildCard(context, 'המלצות שלי',
@@ -136,8 +167,11 @@ class MainPage extends StatelessWidget {
                         _buildCard(context, 'דבר עם הרופא', Icons.person,
                                 () {
                               print('דבר עם הרופא נלחץ');
-                              // הוסף כאן ניווט למסך דבר עם הרופא
-                            }),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => TalkWithDoctorPage()),
+                              );
+                        }),
                         SizedBox(height: 10),
                         _buildCard(context, 'המלצות שלי',
                             Icons.lightbulb_outline, () {
@@ -238,5 +272,39 @@ class MainPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showPopupMenu(BuildContext context) async {
+    await showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+          MediaQuery.of(context).size.width, 0, 0, 0), // מיקום התפריט
+      items: [
+        PopupMenuItem(
+          child: Text('הגדרות'),
+          value: 'settings',
+        ),
+        PopupMenuItem(
+          child: Text('פרופיל'),
+          value: 'profile',
+        ),
+        PopupMenuItem(
+          child: Text('יציאה'),
+          value: 'logout',
+        ),
+      ],
+      elevation: 8.0,
+    ).then((value) {
+      if (value != null) {
+        // כאן תוסיף את הלוגיקה עבור כל אפשרות בתפריט
+        if (value == 'settings') {
+          print('הגדרות נבחר');
+        } else if (value == 'profile') {
+          print('פרופיל נבחר');
+        } else if (value == 'logout') {
+          print('יציאה נבחר');
+        }
+      }
+    });
   }
 }

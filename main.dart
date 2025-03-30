@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:untitled2/Main_page.dart';
-import 'package:untitled2/Login_page.dart';
-import 'package:untitled2/Recommendation_page.dart';
-import 'TurnDetails_page.dart';
-import 'ReportStatus_page.dart';
-import 'Turns_page.dart';
-import 'ForgotPassword_page.dart';
+import 'package:untitled2/pages/Appointment_screen.dart';
+import 'package:untitled2/pages/Login_page.dart';
+import 'package:untitled2/pages/UploadScreen.dart';
+import 'package:untitled2/pages/ReportStatus_page.dart';
+import 'pages/Appointments_page.dart';
+import 'pages/ForgotPassword_page.dart';
+import 'package:untitled2/pages/TalkWithDoctor_page.dart';
 
 void main() {
   runApp(const MyApp());

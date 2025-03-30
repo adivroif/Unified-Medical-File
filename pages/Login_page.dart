@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_page.dart';
+import 'package:untitled2/pages/Main_page.dart';
 import 'ForgotPassword_page.dart';
 import 'Registration_page.dart';
 
