@@ -18,7 +18,7 @@ class Treatment {
     required this.suitCategories,
   });
 
-  factory Treatment.fromBoundary(Treatmentboundary boundary) {
+  factory Treatment.fromBoundary(TreatmentBoundary boundary) {
     return Treatment(
       treatmentId: boundary.treatmentId,
       treatmentName: boundary.treatmentName,

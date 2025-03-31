@@ -32,12 +32,12 @@ class ApiService {
 
   Future<List<Treatment>> fetchTreatments() async {
     try {
-      final response = await http.get(Uri.parse("$baseUrl/api/Treatment"));
+      final response = await http.get(Uri.parse("$baseUrl/api/Tretment"));
 
       if (response.statusCode == 200) {
-        List<Treatmentboundary> objects = (jsonDecode(
+        List<TreatmentBoundary> objects = (jsonDecode(
             utf8.decode(response.bodyBytes)) as List)
-            .map((i) => Treatmentboundary.fromJson(i))
+            .map((i) => TreatmentBoundary.fromJson(i))
             .toList();
 
         return objects.map((object) {

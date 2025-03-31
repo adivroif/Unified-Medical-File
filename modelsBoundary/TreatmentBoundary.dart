@@ -1,6 +1,6 @@
 import '../SuitCategories.dart';
 
-class Treatmentboundary {
+class TreatmentBoundary {
   int treatmentId;
   String treatmentName;
   String treatmentDescription;
@@ -8,7 +8,7 @@ class Treatmentboundary {
   List<SuitCategories> suitCategories;
 
 
-  Treatmentboundary({
+  TreatmentBoundary({
     required this.treatmentId,
     required this.treatmentName,
     required this.treatmentDescription,
@@ -16,8 +16,8 @@ class Treatmentboundary {
     required this.suitCategories,
   });
 
-  factory Treatmentboundary.fromJson(Map<String, dynamic> json) {
-    return Treatmentboundary(
+  factory TreatmentBoundary.fromJson(Map<String, dynamic> json) {
+    return TreatmentBoundary(
       treatmentId: json['treatmentId'],
       treatmentName: json['treatmentName'],
       treatmentDescription: json['treatmentDescription'],

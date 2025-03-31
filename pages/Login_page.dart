@@ -53,10 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'lib/logo.png', // הוספת לוגו
-                        height: 100,
-                      ),
+                      //Image.asset(
+                        //'lib/logo.png', // הוספת לוגו
+                        //height: 100,
+                      //),
                       SizedBox(height: 20),
                       TextField(
                         decoration: InputDecoration(

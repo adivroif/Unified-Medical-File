@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
+//import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UploadScreen extends StatefulWidget {
@@ -13,7 +13,7 @@ class _UploadScreenState extends State<UploadScreen> {
   String _fileName = " ";
   double _uploadProgress = 0;
 
-  Future<void> _pickFile() async {
+  /*Future<void> _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result != null) {
       setState(() {
@@ -21,7 +21,7 @@ class _UploadScreenState extends State<UploadScreen> {
         _fileName = result.files.single.name;
       });
     }
-  }
+  }*/
 
   Future<void> _pickImage() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -61,10 +61,10 @@ class _UploadScreenState extends State<UploadScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(
-                onPressed: _pickFile,
-                child: Text('בחר קובץ'),
-              ),
+              //ElevatedButton(
+                //onPressed: _pickFile,
+                //child: Text('בחר קובץ'),
+              //),
               ElevatedButton(
                 onPressed: _pickImage,
                 child: Text('בחר תמונה'),
